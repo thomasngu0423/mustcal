@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 130px; /* Increased padding at the top for better visibility on smaller screens */
+        }
+
+        .calculator-container {
+            width: 90%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .calculator-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .calculator-box {
+            width: 100%;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        p {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Media query for screens wider than 600px (adjust the value as needed) */
+        @media (min-width: 600px) {
+            .calculator-group {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .calculator-box {
+                width: calc(33.33% - 20px);
+                margin-bottom: 0;
+            }
+        }
+
+
+    </style>
+    <title>Ride Profit Calculator</title>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Ride Profit Calculator</h1>
+
+        <div class="calculator-group">
+            <div class="calculator-box" id="fuelCalculator">
+                <h2>Fuel Cost Calculator</h2>
+                <label for="distance">Distance (km): </label>
+                <input type="number" id="distance" placeholder="Enter distance" oninput="calculateFuelCost()">
+                <label for="mileage">Mileage (km/l): </label>
+                <input type="number" id="mileage" placeholder="Enter mileage" oninput="calculateFuelCost()">
+                <label for="fuelPrice">Fuel Price (RM/l): </label>
+                <input type="number" id="fuelPrice" placeholder="Enter fuel price" value="2.05" oninput="calculateFuelCost()">
+                <p id="fuelResult">Total Fuel Cost: RM 0.00</p>
+                <p id="fuelResultPerKm">Fuel Cost per km: RM 0.00</p>
+            </div>
+
+            <div class="calculator-box" id="maintenanceCalculator">
+                <h2>Maintenance Cost Calculator</h2>
+                <label for="maintenanceCost">Maintenance Cost per 10,000 km (RM): </label>
+                <input type="number" id="maintenanceCost" placeholder="Enter maintenance cost" oninput="calculateMaintenanceCost()">
+                <p id="maintenanceResult">Total Maintenance Cost: RM 0.00</p>
+                <p id="maintenanceResultPerKm">Maintenance Cost per km: RM 0.00</p>
+            </div>
+
+            <div class="calculator-box" id="netProfitCalculator">
+                <h2>Net Profit Calculator</h2>
+                <label for="earning">Earning (RM): </label>
+                <input type="number" id="earning" placeholder="Enter earning" oninput="calculateNetProfit()">
+                <p id="netProfitResult">Net Profit: RM 0.00</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
